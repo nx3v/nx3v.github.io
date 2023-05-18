@@ -1,0 +1,220 @@
+@font-face {
+  font-family: 'Ubuntu Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Ubuntu Mono'), local('UbuntuMono-Regular'),
+       url('fonts/ubuntu-mono-v9-latin-regular.woff2') format('woff2'),
+       url('fonts/ubuntu-mono-v9-latin-regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Ubuntu Mono';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Ubuntu Mono Italic'), local('UbuntuMono-Italic'),
+       url('fonts/ubuntu-mono-v9-latin-italic.woff2') format('woff2'),
+       url('fonts/ubuntu-mono-v9-latin-italic.woff') format('woff');
+}
+
+body {
+  font-family: 'Ubuntu Mono', monospace;
+  margin: 0;
+  text-align: center;
+  background-color: #2a2a2a;
+  width: 95vw;
+  margin: auto;
+}
+
+h1 {
+  color: #ffe28a;
+  font-size: 4em;
+}
+
+img, video {
+  max-width: max(640px, 90vw);
+  max-height: 60vh;
+  display: inline-block;
+  position: relative;
+  border-radius: .5em;
+  object-fit: cover;
+  height: 360px;
+  min-height: 9em;
+  background: #161616 url('data:image/svg+xml,%3C%3Fxml version="1.0" encoding="UTF-8"%3F%3E%3Csvg stroke="%23fff" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd" stroke-width="2"%3E%3Ccircle cx="22" cy="22" r="1"%3E%3Canimate attributeName="r" begin="0s" calcMode="spline" dur="1.8s" keySplines="0.165, 0.84, 0.44, 1" keyTimes="0; 1" repeatCount="indefinite" values="1; 20"/%3E%3Canimate attributeName="stroke-opacity" begin="0s" calcMode="spline" dur="1.8s" keySplines="0.3, 0.61, 0.355, 1" keyTimes="0; 1" repeatCount="indefinite" values="1; 0"/%3E%3C/circle%3E%3Ccircle cx="22" cy="22" r="1"%3E%3Canimate attributeName="r" begin="-0.9s" calcMode="spline" dur="1.8s" keySplines="0.165, 0.84, 0.44, 1" keyTimes="0; 1" repeatCount="indefinite" values="1; 20"/%3E%3Canimate attributeName="stroke-opacity" begin="-0.9s" calcMode="spline" dur="1.8s" keySplines="0.3, 0.61, 0.355, 1" keyTimes="0; 1" repeatCount="indefinite" values="1; 0"/%3E%3C/circle%3E%3C/g%3E%3C/svg%3E%0A') center center no-repeat;
+  background-size: auto 15%;
+}
+
+img::after {
+    content: 'x';
+    display: flex;
+    position: absolute;
+    background: #161616;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+a {
+  color: white;
+  vertical-align: middle;
+  line-height: 1.65em;
+  filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, .3));
+  transition: filter .25s ease-in-out;
+  border-radius: .5em;
+}
+
+a:hover {
+  color: grey;
+  filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, .3));
+}
+
+a[href='.'] {
+  display: block;
+  padding-bottom: .5em;
+}
+
+a[href='.'], a[href='.']:hover {
+  filter: none;
+}
+
+span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, .3);
+  border-radius: .5em .5em 0 0;
+  opacity: 0;
+  transition: opacity .25s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-around; /* TODO: make them buttons that span their respective section because hitting the small icon is hard */
+  height: 2em;
+}
+
+a:hover > span {
+    opacity: 1;
+}
+
+    .gg-search {
+    box-sizing: border-box;
+    position: relative;
+    display: inline-block;
+    transform: scale(var(--ggs,1));
+    width: 16px;
+    height: 16px;
+    border: 2px solid;
+    border-radius: 100%;
+    margin-left: -4px;
+    margin-top: -4px
+}
+.gg-search::after {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    border-radius: 3px;
+    width: 2px;
+    height: 8px;
+    background: currentColor;
+    transform: rotate(-45deg);
+    top: 10px;
+    left: 12px
+}
+    .gg-color-picker {
+    box-sizing: border-box;
+    position: relative;
+    display: inline-block;
+    transform: rotate(-45deg) scale(var(--ggs,1));
+    width: 18px;
+    height: 10px;
+    border-left: 0;
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+    border-top: 2px solid transparent;
+    border-bottom: 2px solid transparent;
+    border-right: 2px solid transparent;
+    box-shadow: inset 0 0 0 2px
+}
+.gg-color-picker::after,
+.gg-color-picker::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    background: currentColor
+}
+.gg-color-picker::before {
+    top: -2px;
+    border-radius: 3px;
+    width: 2px;
+    height: 10px;
+    right: -3px
+}
+.gg-color-picker::after {
+    width: 8px;
+    height: 6px;
+    right: -9px;
+    box-shadow: -21px 0 0 -2px;
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px
+}
+    .gg-image {
+    box-sizing: border-box;
+    position: relative;
+    display: inline-block;
+    transform: scale(var(--ggs,1));
+    width: 20px;
+    height: 16px;
+    overflow: hidden;
+    box-shadow: 0 0 0 2px;
+    border-radius: 2px
+}
+.gg-image::after,
+.gg-image::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    border: 2px solid
+}
+.gg-image::after {
+    transform: rotate(45deg);
+    border-radius: 3px;
+    width: 16px;
+    height: 16px;
+    top: 9px;
+    left: 6px
+}
+.gg-image::before {
+    width: 6px;
+    height: 6px;
+    border-radius: 100%;
+    top: 2px;
+    left: 2px
+}
+
+i {
+  color: navajowhite;
+}
+
+p {
+  white-space: pre-line;
+}
+
+.t {
+  font-size: 0;
+  user-select: none;
+}
+
+.t::before {
+  content: "\6bn" "a" attr(class) attr(class) "ep ";
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  font-size: initial;
+  padding-bottom: 1.5em;
+}
+
+.t::after {
+  content: "o\40ri" "se\75p\2en" "e" attr(class);
+  font-size: initial;
+}
